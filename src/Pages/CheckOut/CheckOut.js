@@ -11,20 +11,47 @@ const CheckOut = () => {
         const form = event.target;
         const name = form.fullName.value;
         const email = user?.email || 'unregister';
-        const phone = form.phone.value;
-        const eventDate = form.date.value;
+        const phone = form.phoneNumber.value;
+        const eventDate =form.date.value;
         const details = form.details.value;
-        const title = form.title.value;
+        const title = form.title.value; 
+        
 
         const volunteer = {
-            service: _id,
+            volunteers: {_id},
             name, 
             email,
             phone,
-            eventDate,
+            eventDate ,
             details,
             title
         }
+
+        /* if(phone.length > 10){
+            alert('Phone number should be 11 character')
+        }
+        else{
+
+        } */
+
+        fetch('http://localhost:5000/registeredLists', {
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(volunteer)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.acknowledged === true){
+                form.reset();
+                window.alert('Registered as Volunteer Successfully');
+            }
+        })
+        .catch(err => console.error(err));
+
+        
     }
 
     return (
@@ -45,14 +72,14 @@ const CheckOut = () => {
                                 <label className="label">
                                     <span className="label-text">Phone Number</span>
                                 </label>
-                                <input type="text" name='phone'  placeholder="Phone" className="input input-bordered w-full text-white"  required/>
+                                <input type="text" name='phoneNumber'  placeholder="Phone" className="input input-bordered w-full text-white"  required/>
                             </div>
 
                             <div>
                                 <label className="label">
                                     <span className="label-text">User Email</span>
                                 </label>
-                                <input type="text" name='email' defaultValue={user.email}    placeholder="User Email" className="input input-bordered w-full text-white" readOnly/>
+                                <input type="text" name='email' defaultValue={user?.email}    placeholder="User Email" className="input input-bordered w-full text-white" readOnly/>
                             </div>
 
 
