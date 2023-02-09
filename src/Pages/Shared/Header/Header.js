@@ -31,7 +31,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/register" className="btn mx-5 text-white">Register</Link>
+                    <Link to="/register" className="btn mx-5 text-white">Registration</Link>
                     <Link to="/" className="btn mx-5 text-white">Admin</Link>
                 </div>
             </div>
