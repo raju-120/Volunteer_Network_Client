@@ -5,6 +5,7 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import CheckOut from "../../Pages/CheckOut/CheckOut";
+import MyProfile from "../../Pages/MyProfile/MyProfile";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,12 @@ const router = createBrowserRouter([
                 path: "/checkout/:id",
                 element: <CheckOut></CheckOut>,
                 loader: ({params}) =>fetch(`http://localhost:5000/events/${params.id}`)
+            },
+            {
+                path: "/profile",
+                element:<MyProfile></MyProfile>
             }
+            
         ]
     }
 ])
