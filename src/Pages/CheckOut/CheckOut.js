@@ -18,7 +18,7 @@ const CheckOut = () => {
         
 
         const volunteer = {
-            volunteers: {_id},
+            volunteers: _id,
             name, 
             email,
             phone,

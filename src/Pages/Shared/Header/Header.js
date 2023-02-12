@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../../Asstes/logos/Group 1329.png";
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+
+
 const Header = () => {
+
+    const {user} = useContext(AuthContext)
 
     const menuItems = <>
         <li className='text-white' style={{marginRight:"10px"}}><Link to="/">Home</Link></li>
@@ -31,8 +36,22 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/register" className="btn mx-5 text-white">Registration</Link>
-                    <Link to="/" className="btn mx-5 text-white">Admin</Link>
+                    {
+                        user?.email ?
+                        <>
+                            <Link to="/profile" className="btn mx-5 text-white">Profile</Link>
+                        </>
+                        :
+                        <Link to="/register" className="btn mx-5 text-white">Registration</Link>
+                    }
+                    {
+                        user?.email ?
+                        <>
+                            <Link to="/" className="btn mx-5 text-white">LogOut</Link>
+                        </>
+                        :
+                        <Link to="/" className="btn mx-5 text-white">Admin</Link>
+                    }
                 </div>
             </div>
         </div>

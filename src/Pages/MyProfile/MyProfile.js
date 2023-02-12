@@ -14,14 +14,16 @@ const MyProfile = () => {
     }, [user?.email])
     return (
         <div>
-            <h2 className='text-3xl text-red-600 mx-5 mt-14 mb-5'>You Have {registeredLists.length} Data</h2>
+            <h2 className='text-3xl mx-16 text-red-600 mx-5 mt-5 mb-5'>You Have {registeredLists.length} Data</h2>
             
-            <div  className='grid gap-4 mb-5 px-5 grid-cols-1 lg:grid-cols-2' >
+            <div  className='grid gap-4 mx-16 mb-5 px-5 grid-cols-1 lg:grid-cols-2' >
+                
                 {registeredLists.map(registeredList =><ProfileEvent
                 key={registeredList._id}
                 registeredList={registeredList}>
 
                 </ProfileEvent>)}
+                
             </div>
         </div>
     );
