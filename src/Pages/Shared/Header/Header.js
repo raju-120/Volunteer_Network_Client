@@ -58,7 +58,7 @@ const Header = () => {
                             </Link>
                         </>
                         :
-                        <Link to="/" className="btn mx-5 text-white">Admin</Link>
+                        <Link to="/admin" className="btn mx-5 text-white">Admin</Link>
                     }
                 </div>
             </div>

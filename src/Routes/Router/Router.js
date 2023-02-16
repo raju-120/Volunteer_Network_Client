@@ -6,6 +6,7 @@ import Register from "../../Pages/Register/Register";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import CheckOut from "../../Pages/CheckOut/CheckOut";
 import MyProfile from "../../Pages/MyProfile/MyProfile";
+import Admin from "../../Pages/Admin/Admin";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path: "/profile",
                 element:<MyProfile></MyProfile>
+            },
+            {
+                path: "/admin",
+                element: <Admin></Admin>
             }
             
         ]
